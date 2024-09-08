@@ -1,9 +1,6 @@
 # Dice Game Application
 
-Bienvenue dans l'application Dice Game ! Ce projet propose un jeu de dés avec deux interfaces principales : une interface web pour les joueurs et une interface d'administration pour les gestionnaires.
-
 ## Sommaire
-
 1. [Description](#description)
 2. [Environnement](#environnement)
 3. [Langages](#langages)
@@ -16,41 +13,35 @@ Bienvenue dans l'application Dice Game ! Ce projet propose un jeu de dés avec d
 10. [Dépannage](#dépannage)
 
 ## Description
-
-L'application Dice Game se compose de deux parties :
-- **Interface Web** : Permet aux utilisateurs de jouer au jeu de dés.
-- **Interface d'Administration** : Permet aux administrateurs de gérer les utilisateurs, les sessions de jeu, et les configurations.
+Cette application est un jeu de dés composé de deux parties : une interface web et une interface d'administration. L'interface web permet aux utilisateurs de jouer au jeu de dés, tandis que l'interface d'administration permet de gérer les utilisateurs, les sessions de jeu et les configurations.
 
 ## Environnement
-
-L'application utilise Docker pour la conteneurisation des services. Les services sont définis dans un fichier `docker-compose.yml`.
+L'application utilise Docker pour la conteneurisation. Les services sont définis dans un fichier `docker-compose.yml`.
 
 ## Langages
-
-- **Interface Web** : JavaScript (Node.js, Sequelize)
-- **Interface d'Administration** : Python (Flask, SQLAlchemy)
-- **Base de données** : MySQL
+- Interface Web : JavaScript (Node.js, Sequelize)
+- Interface d'Administration : Python (Flask, SQLAlchemy)
+- Base de données : MySQL
 
 ## Prérequis
-
-Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votre machine :
 - Docker
 - Docker Compose
 
 ## Installation
 
-1. Clonez le dépôt GitHub :
+1. Clonez le dépôt :
     ```sh
     git clone https://github.com/votre-utilisateur/dice-game.git
     cd dice-game
     ```
 
-2. (Optionnel) Créez un fichier `.env` si vous avez des variables d'environnement spécifiques à définir.
+2. Créez les fichiers de configuration nécessaires (si nécessaire) :
+    - `.env` (pour les variables d'environnement)
 
 ## Configuration
+Assurez-vous que le fichier `docker-compose.yml` contient les bonnes informations de configuration. Vous pouvez adapter les valeurs selon vos besoins.
 
-Vérifiez et ajustez le fichier `docker-compose.yml` selon vos besoins. Voici un exemple de configuration :
-
+### Exemple de `docker-compose.yml` :
 ```yaml
 version: '3.8'
 
@@ -95,3 +86,33 @@ services:
 
 volumes:
   db-data:
+```
+
+## Exécution
+1. Démarrez les conteneurs Docker :
+
+```
+docker-compose up --build
+```
+
+2. Accédez à l'application :
+
+- Interface Web : http://localhost:4000
+- Interface d'Administration : http://localhost:5000
+
+## Utilisation
+
+1. Interface Web
+Les utilisateurs peuvent jouer au jeu de dés en accédant à l'interface web. Ils peuvent créer un compte, rejoindre une session de jeu et commencer à jouer.
+
+2. Interface d'Administration
+Les administrateurs peuvent gérer les utilisateurs, les sessions de jeu et les configurations via l'interface d'administration.
+
+## Tests
+
+- Pour exécuter les tests unitaires pour l'interface web :
+
+```
+cd web
+npm test
+```
